@@ -18,3 +18,4 @@ describe('[HomePage] Start:', () => {
     expect(wrapper).toBeDefined()
   })
 })
+
