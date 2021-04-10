@@ -1,2 +1,4 @@
 //
-export const DEFAULT = 'DEFAULT'
+export const DEFAULT = 'DEFAULT';
+
+export default { DEFAULT };

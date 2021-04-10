@@ -1,8 +1,8 @@
 // Libraries
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 // Reducers
-import DefaultReducer from './reducer-default'
+import DefaultReducer from './reducer-default';
 
-const rootReducer = combineReducers({ defaultStore: DefaultReducer })
+const rootReducer = combineReducers({ defaultStore: DefaultReducer });
 
-export default rootReducer
+export default rootReducer;

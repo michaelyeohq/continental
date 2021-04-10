@@ -1,22 +1,16 @@
 // Libraries
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 // Action Creators
-import * as DefaultActionCreator from '../../stores/actions/action-default'
+import * as DefaultActionCreator from '../../stores/actions/action-default';
 
-interface IHomePageProps {
-  name: string;
-}
-
-export const HomePage = (props: IHomePageProps) => {
-  return <div>Home Page</div>
-}
+export const HomePage = () => <div>Home Page</div>;
 
 const mapStateToProps = (state: any) => ({
   defaultStore: state.defaultStore,
-})
+});
 
 const mapDispatchToProps = (dispatch: any) => ({
   defaultAction: () => dispatch(DefaultActionCreator.defaultAction()),
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

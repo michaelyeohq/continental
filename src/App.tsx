@@ -6,7 +6,7 @@ import Routes from './routes';
 function App() {
   return (
     <div className="App">
-      <header>React Typescript Sta</header>
+      <header>React Typescript Starter</header>
       <nav>
         <ul>
           <li>
