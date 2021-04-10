@@ -1,7 +1,7 @@
 // Libraries
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 // Routes
-import Routes from './routes'
+import Routes from './routes';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
       </nav>
       <Routes />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
