@@ -6,7 +6,7 @@ import Routes from './routes';
 function App() {
   return (
     <div className="App">
-      <header>MAFCOM React Typescript</header>
+      <header>React Typescript Sta</header>
       <nav>
         <ul>
           <li>
