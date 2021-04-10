@@ -1,0 +1,9 @@
+# Compiled
+build/*
+# Coverage
+coverage/*
+# Dependencies
+node_modules/*
+# IDEs
+.vscode/*
+
