@@ -1,13 +1,10 @@
 // Libraries
 import { Switch, Route } from 'react-router-dom';
 // Pages
-import HomePage from '../pages/home/Home';
+import AuthenticatePage from '../pages/authenticate/AuthenticatePage';
 
 const Routes = () => {
-  const routes = [
-    { path: '/', component: <HomePage />, options: { exact: true } },
-    { path: '/about', component: <div>About</div>, options: {} },
-  ];
+  const routes = [{ path: '/', component: <AuthenticatePage />, options: { exact: true } }];
   return (
     <Switch>
       {routes.map(route => (

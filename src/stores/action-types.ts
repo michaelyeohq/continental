@@ -1,4 +1,9 @@
 //
 export const DEFAULT = 'DEFAULT';
+// Auth
+export const AUTH_LOGIN_START = 'AUTH_LOGIN_START';
+export const AUTH_LOGIN_STOP = 'AUTH_LOGIN_STOP';
+export const AUTH_LOGIN_SUCCESS = 'AUTH_LOGIN_SUCCESS';
+export const AUTH_LOGIN_FAIL = 'AUTH_LOGIN_FAIL';
 
-export default { DEFAULT };
+export default { DEFAULT, AUTH_LOGIN_START, AUTH_LOGIN_STOP, AUTH_LOGIN_SUCCESS, AUTH_LOGIN_FAIL };

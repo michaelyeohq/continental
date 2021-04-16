@@ -1,18 +1,19 @@
 // Libraries
-import { Action } from 'redux';
+import { AnyAction } from 'redux';
 // Action Types
 import * as ActionTypes from '../action-types';
 
-export const initialState = { default: 'default', test: [], test2: { inner1: 'test' } };
+export const initialState = { loading: false, default: undefined };
 
-const defaultReducer = (state = initialState, action: Action) => {
+const authReducer = (state = initialState, action: AnyAction) => {
   const newState = { ...state };
   switch (action.type) {
     case ActionTypes.DEFAULT:
+      newState.loading = true;
       return newState;
     default:
       return state;
   }
 };
 
-export default defaultReducer;
+export default authReducer;
