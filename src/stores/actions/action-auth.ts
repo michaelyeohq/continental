@@ -11,16 +11,20 @@ interface ILoginActionProps {
   password: string;
 }
 
+export const isLoginAction = () => async (dispatch: React.Dispatch<AnyAction>) => {
+  dispatch({ type: ActionTypes.AUTH_LOGIN_RESUME });
+};
+
 export const loginAction = (loginData: ILoginActionProps) => async (dispatch: React.Dispatch<AnyAction>) => {
   dispatch({ type: ActionTypes.AUTH_LOGIN_START });
   try {
     const response = await httpApi.post('/employees/login', loginData);
-    dispatch({ type: ActionTypes.AUTH_LOGIN_SUCCESS, payload: response });
+    dispatch({ type: ActionTypes.AUTH_LOGIN_SUCCESS, payload: response.data });
   } catch (error) {
-    dispatch({ type: ActionTypes.AUTH_LOGIN_FAIL, payload: error.message });
+    dispatch({ type: ActionTypes.AUTH_LOGIN_FAIL, payload: error.response.data.message });
   } finally {
     dispatch({ type: ActionTypes.AUTH_LOGIN_STOP });
   }
 };
 
-export default { loginAction };
+export default { isLoginAction, loginAction };

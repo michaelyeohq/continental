@@ -1,9 +1,22 @@
 // Libraries
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+// Action Creators
+import ActionAuth from './stores/actions/action-auth';
 // Routes
 import Routes from './routes';
 
-function App() {
+// Interfaces
+interface IAppProps {
+  isLogin: React.Dispatch<void>;
+}
+function App(props: IAppProps) {
+  // React Hooks
+  useEffect(() => {
+    props.isLogin();
+  }, []);
+  // Render
   return (
     <div className="App">
       <header>React Typescript Starter</header>
@@ -22,4 +35,12 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state: any) => ({
+  authStore: state.authStore,
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+  isLogin: () => dispatch(ActionAuth.isLoginAction()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

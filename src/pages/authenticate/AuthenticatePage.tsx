@@ -21,7 +21,7 @@ const AuthenticatePage = (props: IAuthenticatePageProps) => {
   // Handlers
   const submitHandler = (event: React.FormEvent, data: FormFields) => {
     event.preventDefault();
-    props.login({ email: 'AdamChew@email.com', password: 'password' });
+    props.login({ email: data.email.value, password: data.password.value });
   };
   // Render
   return (
