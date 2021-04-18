@@ -1,6 +1,6 @@
 // Libraries
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 // Action Creators
 import ActionAuth from './stores/actions/action-auth';
@@ -19,7 +19,7 @@ function App(props: IAppProps) {
   // Render
   return (
     <div className="App">
-      <header>React Typescript Starter</header>
+      {/* <header>React Typescript Starter</header>
       <nav>
         <ul>
           <li>
@@ -29,8 +29,10 @@ function App(props: IAppProps) {
             <Link to="/about">About</Link>
           </li>
         </ul>
-      </nav>
-      <Routes />
+      </nav> */}
+      <main>
+        <Routes />
+      </main>
     </div>
   );
 }

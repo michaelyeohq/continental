@@ -35,6 +35,7 @@ const defaultReducer = (state = initialState, action: AnyAction) => {
       return newState;
     case ActionTypes.AUTH_LOGIN_FAIL:
       newState.error = action.payload;
+      newState.authentication = undefined;
       localStorage.removeItem(ActionTypes.AUTH_LOGIN_SUCCESS);
       return newState;
     default:

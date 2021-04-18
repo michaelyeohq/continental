@@ -27,4 +27,10 @@ export const loginAction = (loginData: ILoginActionProps) => async (dispatch: Re
   }
 };
 
-export default { isLoginAction, loginAction };
+export const logoutAction = () => async (dispatch: React.Dispatch<AnyAction>) => {
+  dispatch({ type: ActionTypes.AUTH_LOGIN_START });
+  dispatch({ type: ActionTypes.AUTH_LOGIN_FAIL, payload: 'User Logged Out' });
+  dispatch({ type: ActionTypes.AUTH_LOGIN_STOP });
+};
+
+export default { isLoginAction, loginAction, logoutAction };

@@ -21,31 +21,27 @@ code {
 }
 
 /* Typography */
-label, input {
+label,
+input {
   line-height: 1.5;
 }
 
 /* Basic Form */
-/* Basic Input */
-.basic-input {
+.basic-form {
   display: flex;
-  flex-direction: column;
-}
-
-.basic-input > * {
-  flex-basis: 100%;
   gap: 1rem;
 }
 
-.basic-input-label {
-  color: var(--color-primary);
-  font-size: 0.8rem;
-  font-weight: bold;
+.basic-form-column {
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.basic-form > * {
+  width: 100%;
   text-transform: capitalize;
 }
 
-.basic-input-text {
-  color: var(--color-secondary);
-  font-size: 1rem;
-  padding: 0.25rem;
+.basic-form > button {
+  width: 10rem;
 }

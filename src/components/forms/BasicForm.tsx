@@ -1,5 +1,5 @@
 // Libraries
-import React from 'react';
+import { Button } from '@material-ui/core';
 // Logics
 import BasicFormLogic from './BasicFormLogic';
 // Components
@@ -17,9 +17,11 @@ const BasicForm = (props: IBasicFormProps) => {
   const generateInputFields = () => Object.keys(form).map(id => <BasicInput key={id} id={id} input={form[id]} onChange={changeHandler} />);
 
   return (
-    <form onSubmit={event => props.onSubmit(event, form)}>
+    <form className="basic-form basic-form-column" onSubmit={event => props.onSubmit(event, form)}>
       {generateInputFields()}
-      <button type="submit">Login</button>
+      <Button type="submit" variant="outlined" color="primary">
+        Login
+      </Button>
     </form>
   );
 };
