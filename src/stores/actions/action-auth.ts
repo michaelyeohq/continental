@@ -11,6 +11,8 @@ interface ILoginActionProps {
   password: string;
 }
 
+export const clearErrorAction = () => ({ type: ActionTypes.AUTH_LOGIN_CLEAR_ERROR });
+
 export const isLoginAction = () => async (dispatch: React.Dispatch<AnyAction>) => {
   dispatch({ type: ActionTypes.AUTH_LOGIN_RESUME });
 };
@@ -33,4 +35,4 @@ export const logoutAction = () => async (dispatch: React.Dispatch<AnyAction>) =>
   dispatch({ type: ActionTypes.AUTH_LOGIN_STOP });
 };
 
-export default { isLoginAction, loginAction, logoutAction };
+export default { clearErrorAction, isLoginAction, loginAction, logoutAction };

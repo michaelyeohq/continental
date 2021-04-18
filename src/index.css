@@ -20,6 +20,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+/* utility */
+.hide {
+  display: none !important;
+}
+
 /* Typography */
 label,
 input {

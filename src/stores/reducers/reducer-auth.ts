@@ -17,6 +17,9 @@ export const initialState: IInitialState = { loading: false, authentication: und
 const defaultReducer = (state = initialState, action: AnyAction) => {
   const newState = { ...state };
   switch (action.type) {
+    case ActionTypes.AUTH_LOGIN_CLEAR_ERROR:
+      newState.error = undefined;
+      return newState;
     case ActionTypes.AUTH_LOGIN_START:
       newState.loading = true;
       return newState;

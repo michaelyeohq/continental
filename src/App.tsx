@@ -1,35 +1,47 @@
 // Libraries
 import { useEffect } from 'react';
-// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Theme, createStyles, makeStyles, AppBar, Toolbar } from '@material-ui/core';
 // Action Creators
 import ActionAuth from './stores/actions/action-auth';
 // Routes
 import Routes from './routes';
-
+// Pages
+import AuthenticatePage from './pages/authenticate/AuthenticatePage';
+// Styles
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    App: {
+      margin: theme.spacing(0),
+    },
+    Toolbar: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'flex-end',
+    },
+  }),
+);
 // Interfaces
 interface IAppProps {
   isLogin: React.Dispatch<void>;
 }
 function App(props: IAppProps) {
+  // Styles
+  const classes = useStyles();
   // React Hooks
   useEffect(() => {
     props.isLogin();
   }, []);
   // Render
   return (
-    <div className="App">
-      {/* <header>React Typescript Starter</header>
+    <div className={classes.App}>
       <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-        </ul>
-      </nav> */}
+        <AppBar position="static">
+          <Toolbar className={classes.Toolbar}>
+            <AuthenticatePage />
+          </Toolbar>
+        </AppBar>
+      </nav>
       <main>
         <Routes />
       </main>
