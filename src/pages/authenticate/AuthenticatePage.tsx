@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Delete } from '@material-ui/icons';
 import { Theme, makeStyles, createStyles, Card, Modal, Button, Snackbar, Typography } from '@material-ui/core';
 // Logics
-import AuthenticatePageLogic from './AuthenticatePageLogic';
+import useAuthenticatePageLogic from './useAuthenticatePageLogic';
 // Action Creators
 import ActionAuth from '../../stores/actions/action-auth';
 // Components
@@ -39,7 +39,7 @@ export const AuthenticatePage = (props: any) => {
   // Style Hooks
   const classes = useStyles();
   // Custom Hooks
-  const logic = AuthenticatePageLogic({ ...props, loginForm: form });
+  const logic = useAuthenticatePageLogic({ ...props, loginForm: form });
   // Generators
   const generateLoginFormInputs = Object.keys(logic.loginForm).map(name => (
     <MaterialUIInputField key={name} name={name} input={logic.loginForm[name]} onChange={logic.loginFormChangeHandler} />
@@ -47,7 +47,7 @@ export const AuthenticatePage = (props: any) => {
   // Render
   return (
     <div data-testid="AuthenticatePage" className={classes.AuthenticatePage}>
-      <Modal data-testid="AuthenticatePage-Modal" className={classes.Modal} open={logic.showModal} onClose={() => logic.setShowModal(false)}>
+      <Modal className={classes.Modal} open={logic.showModal} onClose={() => logic.setShowModal(false)}>
         <Card className={classes.Card}>
           <form className="basic-form basic-form-column" onSubmit={logic.loginHandler}>
             {generateLoginFormInputs}

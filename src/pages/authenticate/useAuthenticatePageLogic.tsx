@@ -1,7 +1,7 @@
 // Libraries
 import React, { useEffect, useState } from 'react';
 
-interface IAuthenticatePageLogicProps {
+interface IUseAuthenticatePageLogicProps {
   authStore: { [x: string]: any };
   clearError: React.Dispatch<void>;
   login: React.Dispatch<ILoginActionProps>;
@@ -9,7 +9,7 @@ interface IAuthenticatePageLogicProps {
   loginForm: { [x: string]: any };
 }
 
-const AuthenticatePageLogic = (props: IAuthenticatePageLogicProps) => {
+const useAuthenticatePageLogic = (props: IUseAuthenticatePageLogicProps) => {
   // React Hooks useState
   const [loginForm, setLoginForm] = useState(props.loginForm);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -28,7 +28,7 @@ const AuthenticatePageLogic = (props: IAuthenticatePageLogicProps) => {
   // Handlers
   const closeErrorMessageHandler = () => {
     setShowErrorMessage(false);
-    setTimeout(() => props.clearError(), 1000);
+    setTimeout(props.clearError, 1000);
   };
   const loginFormChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLoginForm({
@@ -64,4 +64,4 @@ const AuthenticatePageLogic = (props: IAuthenticatePageLogicProps) => {
   };
 };
 
-export default AuthenticatePageLogic;
+export default useAuthenticatePageLogic;
