@@ -1,13 +1,13 @@
 // Libraries
 import { connect } from 'react-redux';
 import { Delete } from '@material-ui/icons';
-import { Theme, makeStyles, createStyles, Card, Modal, Button, IconButton, Snackbar, Typography } from '@material-ui/core';
+import { Theme, makeStyles, createStyles, Card, Modal, Button, Snackbar, Typography } from '@material-ui/core';
 // Logics
 import AuthenticatePageLogic from './AuthenticatePageLogic';
 // Action Creators
 import ActionAuth from '../../stores/actions/action-auth';
 // Components
-import BasicForm from '../../components/forms/BasicForm';
+import MaterialUIInputField from '../../components/inputs/MaterialUIInputField';
 // Mocks
 import { form } from './mock';
 // Styles
@@ -22,26 +22,39 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(5),
     },
     Snackbar: {
-      padding: theme.spacing(1),
-      backgroundColor: theme.palette.warning.light,
+      padding: theme.spacing(2),
+      backgroundColor: theme.palette.warning.main,
     },
     Typography: {
       color: theme.palette.text.secondary,
+      textTransform: 'capitalize',
+    },
+    Button: {
+      flexShrink: 1,
     },
   }),
 );
-
-const AuthenticatePage = (props: any) => {
+// Page
+export const AuthenticatePage = (props: any) => {
   // Style Hooks
   const classes = useStyles();
   // Custom Hooks
-  const logic = AuthenticatePageLogic(props);
+  const logic = AuthenticatePageLogic({ ...props, loginForm: form });
+  // Generators
+  const generateLoginFormInputs = Object.keys(logic.loginForm).map(name => (
+    <MaterialUIInputField key={name} name={name} input={logic.loginForm[name]} onChange={logic.loginFormChangeHandler} />
+  ));
   // Render
   return (
-    <div className={classes.AuthenticatePage}>
-      <Modal className={classes.Modal} open={logic.showModal} onClose={() => logic.setShowModal(false)}>
+    <div data-testid="AuthenticatePage" className={classes.AuthenticatePage}>
+      <Modal data-testid="AuthenticatePage-Modal" className={classes.Modal} open={logic.showModal} onClose={() => logic.setShowModal(false)}>
         <Card className={classes.Card}>
-          <BasicForm form={form} onSubmit={logic.loginHandler} />
+          <form className="basic-form basic-form-column" onSubmit={logic.loginHandler}>
+            {generateLoginFormInputs}
+            <Button type="submit" variant="outlined" color="primary">
+              Login
+            </Button>
+          </form>
         </Card>
       </Modal>
       <Snackbar
@@ -58,9 +71,9 @@ const AuthenticatePage = (props: any) => {
           <Typography className={classes.Typography} variant="h6">
             {logic.errorMessage}
           </Typography>
-          <IconButton onClick={logic.closeErrorMessageHandler}>
+          <Button className={classes.Button} onClick={logic.closeErrorMessageHandler}>
             <Delete />
-          </IconButton>
+          </Button>
         </>
       </Snackbar>
       <Button className={logic.isLoggedIn ? 'hide' : undefined} variant="outlined" color="secondary" onClick={() => logic.setShowModal(true)}>

@@ -3,12 +3,14 @@ export const form: FormFields = {
   email: {
     type: 'text',
     label: 'email',
-    value: 'test@test.com',
+    value: '',
+    placeholder: 'Enter your email',
   },
   password: {
     type: 'password',
     label: 'password',
     value: '',
+    placeholder: 'Enter your password',
   },
 };
 

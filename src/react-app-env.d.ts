@@ -21,4 +21,5 @@ interface Input {
   type: string;
   label: string;
   value?: any;
+  placeholder?: string;
 }
