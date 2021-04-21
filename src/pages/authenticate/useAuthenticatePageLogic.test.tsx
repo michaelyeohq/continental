@@ -1,5 +1,4 @@
 // Libraries
-import { waitFor } from '@testing-library/react';
 import { act, renderHook } from '@testing-library/react-hooks';
 // Target
 import useAuthenticatePageLogic from './useAuthenticatePageLogic';
@@ -23,6 +22,10 @@ describe('[useAuthenticatePageLogic] Start: ', () => {
     // Render instance
     instance = renderHook(() => useAuthenticatePageLogic(baseProps));
   });
+  // AfterEach
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
   // Tests
   it('should instantiate without crashing.', () => {
     // Check if wrapper is defined
@@ -40,7 +43,18 @@ describe('[useAuthenticatePageLogic] Start: ', () => {
     // Check "showErrorMessage" is false
     expect(result.current.showErrorMessage).toBeFalsy();
   });
-  it('should set "setLoginForm" to false when "loginFormChangeHandler" is triggered.', () => {
+  it('should trigger "clearError" when "closeErrorMessageHandler" is triggered.', async () => {
+    // Abstract result from instance
+    const { result } = instance;
+    // Check that "login" has not been called
+    expect(baseProps.clearError).toHaveBeenCalledTimes(0);
+    // Trigger "closeErrorMessageHandler"
+    act(() => result.current.closeErrorMessageHandler());
+    // Check that "baseProps.clearError" have been called once
+    expect(setTimeout).toHaveBeenCalledTimes(1);
+    expect(baseProps.clearError).toHaveBeenCalledTimes(1);
+  });
+  it('should trigger "setLoginForm" when "loginFormChangeHandler" is triggered.', () => {
     // Abstract result from instance
     const { result } = instance;
     // Check "showErrorMessage" is true
@@ -51,22 +65,6 @@ describe('[useAuthenticatePageLogic] Start: ', () => {
     act(() => result.current.loginFormChangeHandler(mockEvent));
     // Check "showErrorMessage" is false
     expect(result.current.loginForm[mockEvent.target.name].value).toBe(mockEvent.target.value);
-  });
-  it('should trigger "clearError" when "closeErrorMessageHandler" is triggered.', async () => {
-    // Abstract result from instance
-    const { result } = instance;
-    // Check that "login" has not been called
-    expect(baseProps.clearError).toHaveBeenCalledTimes(0);
-    // Setup mock event call
-    const mockEvent = { preventDefault: jest.fn() };
-    // Trigger "loginHandler"
-    act(() => {
-      result.current.loginHandler(mockEvent);
-    });
-    // Check that "login" have been called once
-    waitFor(() => {
-      expect(baseProps.clearError).toHaveBeenCalledTimes(1);
-    });
   });
   it('should trigger "login" when "loginHandler" is triggered.', () => {
     // Abstract result from instance

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(50),
     },
     Card: {
-      padding: theme.spacing(5),
+      padding: theme.spacing(10),
     },
     Snackbar: {
       padding: theme.spacing(2),
@@ -44,6 +44,19 @@ export const AuthenticatePage = (props: any) => {
   const generateLoginFormInputs = Object.keys(logic.loginForm).map(name => (
     <MaterialUIInputField key={name} name={name} input={logic.loginForm[name]} onChange={logic.loginFormChangeHandler} />
   ));
+  const generateLoginFormButton = () => {
+    let clickHandler: any = () => logic.setShowModal(true);
+    let btnText = 'Sign In';
+    if (logic.isLoggedIn) {
+      clickHandler = logic.logoutHandler;
+      btnText = 'Log Out';
+    }
+    return (
+      <Button className={classes.Button} variant="outlined" color="secondary" onClick={clickHandler}>
+        {btnText}
+      </Button>
+    );
+  };
   // Render
   return (
     <div data-testid="AuthenticatePage" className={classes.AuthenticatePage}>
@@ -52,7 +65,7 @@ export const AuthenticatePage = (props: any) => {
           <form className="basic-form basic-form-column" onSubmit={logic.loginHandler}>
             {generateLoginFormInputs}
             <Button type="submit" variant="outlined" color="primary">
-              Login
+              Log In
             </Button>
           </form>
         </Card>
@@ -71,17 +84,12 @@ export const AuthenticatePage = (props: any) => {
           <Typography className={classes.Typography} variant="h6">
             {logic.errorMessage}
           </Typography>
-          <Button className={classes.Button} onClick={logic.closeErrorMessageHandler}>
+          <Button data-testid="AuthenticatePage-Snackbar-Button" className={classes.Button} onClick={logic.closeErrorMessageHandler}>
             <Delete />
           </Button>
         </>
       </Snackbar>
-      <Button className={logic.isLoggedIn ? 'hide' : undefined} variant="outlined" color="secondary" onClick={() => logic.setShowModal(true)}>
-        Sign In
-      </Button>
-      <Button className={logic.isLoggedIn ? undefined : 'hide'} variant="outlined" color="secondary" onClick={logic.logoutHandler}>
-        Sign Out
-      </Button>
+      {generateLoginFormButton()}
     </div>
   );
 };
