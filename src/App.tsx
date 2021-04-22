@@ -49,12 +49,8 @@ function App(props: IAppProps) {
   );
 }
 
-const mapStateToProps = (state: any) => ({
-  authStore: state.authStore,
-});
-
 const mapDispatchToProps = (dispatch: any) => ({
   isLogin: () => dispatch(ActionAuth.isLoginAction()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

@@ -60,7 +60,7 @@ export const AuthenticatePage = (props: any) => {
   // Render
   return (
     <div data-testid="AuthenticatePage" className={classes.AuthenticatePage}>
-      <Modal className={classes.Modal} open={logic.showModal} onClose={() => logic.setShowModal(false)}>
+      <Modal data-testid="AuthenticatePage-Modal" className={classes.Modal} open={logic.showModal} onClose={() => logic.setShowModal(false)}>
         <Card className={classes.Card}>
           <form className="basic-form basic-form-column" onSubmit={logic.loginHandler}>
             {generateLoginFormInputs}

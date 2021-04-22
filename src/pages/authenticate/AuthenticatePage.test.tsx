@@ -119,7 +119,7 @@ describe('[AuthenticatePageConnected] Start: ', () => {
     expect(loggedInStore.getActions().length).toBe(0);
     // Check that "ActionAuth.loginAction" has not been called
     expect(mockLogoutAction).toHaveBeenCalledTimes(0);
-    // Trigger click event on button with "Log In" text
+    // Trigger click event on button with "Log Out" text
     fireEvent.click(screen.getByText('Log Out'));
     // Check that "store.getActions" have at least one actions
     expect(loggedInStore.getActions().length).toBeGreaterThan(0);
@@ -135,11 +135,31 @@ describe('[AuthenticatePageConnected] Start: ', () => {
     expect(loggedOutStore.getActions().length).toBe(0);
     // Check that "ActionAuth.loginAction" has not been called
     expect(mockClearErrorAction).toHaveBeenCalledTimes(0);
-    // Trigger click event on button with "Log In" text
+    // Trigger click event on button with testId "AuthenticatePage-Snackbar-Button" text
     fireEvent.click(screen.getByTestId('AuthenticatePage-Snackbar-Button'));
     // Check that "store.getActions" have at least one actions
     expect(loggedOutStore.getActions().length).toBeGreaterThan(0);
     // Check that "ActionAuth.loginAction" has been called once
     expect(mockClearErrorAction).toHaveBeenCalledTimes(1);
+  });
+  it('should remove modal with testId "AuthenticatePage-Modal" when background fade is clicked.', () => {
+    // Check that AuthenticatePage-Modal is in the document
+    expect(screen.queryByTestId('AuthenticatePage-Modal')).toBeInTheDocument();
+    // Trigger click event on fade background
+    // @ts-ignore
+    fireEvent.click(screen.getByTestId('AuthenticatePage-Modal').firstChild);
+    // Check that AuthenticatePage-Modal is not in the document
+    expect(screen.queryByTestId('AuthenticatePage-Modal')).toBeNull();
+  });
+  it('should render modal with testId "AuthenticatePage-Modal" when button with "Sign In" is clicked.', () => {
+    // Trigger click event on fade background
+    // @ts-ignore
+    fireEvent.click(screen.getByTestId('AuthenticatePage-Modal').firstChild);
+    // Check that AuthenticatePage-Modal is not in the document
+    expect(screen.queryByTestId('AuthenticatePage-Modal')).toBeNull();
+    // Trigger click event on button with "Sign In" text
+    fireEvent.click(screen.getByText('Sign In'));
+    // Check that AuthenticatePage-Modal is in the document
+    expect(screen.queryByTestId('AuthenticatePage-Modal')).toBeInTheDocument();
   });
 });
