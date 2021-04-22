@@ -28,7 +28,8 @@ const useAuthenticatePageLogic = (props: IUseAuthenticatePageLogicProps) => {
   // Handlers
   const closeErrorMessageHandler = () => {
     setShowErrorMessage(false);
-    setTimeout(props.clearError, 1000);
+    // setTimeout(props.clearError, 1000);
+    props.clearError();
   };
   const loginFormChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLoginForm({

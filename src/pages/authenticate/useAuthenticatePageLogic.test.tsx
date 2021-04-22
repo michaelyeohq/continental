@@ -46,12 +46,12 @@ describe('[useAuthenticatePageLogic] Start: ', () => {
   it('should trigger "clearError" when "closeErrorMessageHandler" is triggered.', async () => {
     // Abstract result from instance
     const { result } = instance;
-    // Check that "login" has not been called
+    // Check that "login" have not been called
     expect(baseProps.clearError).toHaveBeenCalledTimes(0);
     // Trigger "closeErrorMessageHandler"
     act(() => result.current.closeErrorMessageHandler());
+    // Advance timer
     // Check that "baseProps.clearError" have been called once
-    expect(setTimeout).toHaveBeenCalledTimes(1);
     expect(baseProps.clearError).toHaveBeenCalledTimes(1);
   });
   it('should trigger "setLoginForm" when "loginFormChangeHandler" is triggered.', () => {
