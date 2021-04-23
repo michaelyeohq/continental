@@ -25,10 +25,10 @@ This project is created with the following main libraries:
 
 ### 1. Checkout / Download Source Code
 
-To get a running copy on your local instance, checkout or download a copy of the repository from [ReactTS-Starter](https://github.com/adamchew89/expressts-starter).
+To get a running copy on your local instance, checkout or download a copy of the repository from [ReactTS-Starter](https://github.geo.conti.de/ISnT-Drive4Apps/reactts-starter).
 
 If you do not have access to the continental github repository above, kindly contact the adminstrators for permission: 
-- Adam Chew <adamchew89@gmail.com>
+- Adam Chew <adam.chew@continental-corporation.com>
 
 <hr/>
 
