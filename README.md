@@ -1,46 +1,91 @@
-# Getting Started with Create React App
+# ```ReactTS Starter ```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## ```ReactTS Starter Web Application```
 
-## Available Scripts
+<hr/>
 
-In the project directory, you can run:
+This project is created with the following main libraries:
 
-### `npm start`
+| Library                                                                       | Purpose                                                 |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------- |
+| [React](https://reactjs.org/)                                                 | Javascript library for building user interfaces.        |
+| [ReactDOM](https://reactjs.org/docs/react-dom.html)                           | DOM-specific methods for rendering web user interfaces. |
+| [Typescript](https://www.typescriptlang.org/)                                 | Superset of javascript with added types.                |
+| [CRA-ReactScripts](https://github.com/facebook/create-react-app#readme)       | ReactJS and ReactTS project generator.                  |
+| [Redux](https://redux.js.org/)                                                | Predictable State Container for JS Apps.                |
+| [Axios](https://github.com/axios/axios)                                       | Promise based HTTP client for the browser and NodeJS.   |
+| [Dotenv](https://github.com/motdotla/dotenv)                                  | Loads environmental variables from files.               |
+| [ReactTestingLibrary](https://testing-library.com/docs/react-testing-library) | Javascript unit testing framework.                      |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<hr/>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## ```Getting started```
 
-### `npm test`
+<hr/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Checkout / Download Source Code
 
-### `npm run build`
+To get a running copy on your local instance, checkout or download a copy of the repository from [ReactTS-Starter](https://github.com/adamchew89/expressts-starter).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If you do not have access to the continental github repository above, kindly contact the adminstrators for permission: 
+- Adam Chew <adamchew89@gmail.com>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<hr/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. Dependencies Installation
 
-### `npm run eject`
+To complete the following instructions, [Node.js](https://nodejs.org/en/) must be installed on your terminal.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Navigate from your preferred command line interface (CLI) tool to the application's root directory: *```cd ~/<project-root-folder>```*
+- Execute the following command to start installing the project dependencies: *```npm install```* or *```npm i```*
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<hr/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 3. Setting-up Local Environment Variables
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The following instructions will create an environment variable file for local use:
 
-## Learn More
+> All custom environment variables must be prefixed with ```REACT_APP_*```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Navigate from your preferred command line interface (CLI) tool to the application's root directory: *```cd ~/<project-root-folder>```*
+- Execute the following command to copy a environmental variable file template: *```cp .env .env.development```*
+- Open and modify the values contained within the file to your requirement.
+- Ensure that an existing database is running for this segment to work.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<hr/>
+
+### 4. Start Application
+
+The following instructions will start hosting the application locally:
+
+- Navigate from your preferred command line interface (CLI) tool to the application's root directory: *```cd ~/<project-root-folder>```*
+- Execute the following command to start a development server locally: *```npm run start```*
+
+<hr/>
+
+### 5. Build Production Version
+
+The following instructions will compile the source codes into a production-ready version:
+
+- Navigate from your preferred command line interface (CLI) tool to the application's root directory: *```cd ~/<project-root-folder>```*
+- Execute the following command to build and compile the source codes: *```npm run build```*
+
+<hr/>
+
+### 6. Unit Testing
+
+The following instructions will start a unit test process on the application:
+
+- Navigate from your preferred command line interface (CLI) tool to the application's root directory: *```cd ~/<project-root-folder>```*
+- Execute the following command to start the unit test process: *```npm run test:local```*
+- Open a browser tab (Google Chrome recommended) and proceed to the following url to view the coverage report: *```~/<project-root-folder>/coverage/lcov-report/index.html```*
+
+<hr/>
+
+### 7. Containerization
+
+The following instructions will enable the containerization of the application:
+
+- Navigate from your preferred command line interface (CLI) tool to the application's root directory: *```cd ~/<project-root-folder>```*
+- Execute the following command to start the image building process: *```docker build -t reactts-starter-image .```*
+- Execute the following command to start the container building process: *```docker run -it --publish 3000:3000 --rm --name reactts-starter-container reactts-starter-image```*

@@ -29,7 +29,7 @@ describe('[useAuthenticatePageLogic] Start: ', () => {
   // Tests
   it('should instantiate without crashing.', () => {
     // Check if wrapper is defined
-    expect(instance).toBeTruthy();
+    expect(instance).toBeDefined();
   });
   it('should set "showErrorMessage" to false when "closeErrorMessageHandler" is triggered.', () => {
     // Abstract result from instance
@@ -46,11 +46,10 @@ describe('[useAuthenticatePageLogic] Start: ', () => {
   it('should trigger "clearError" when "closeErrorMessageHandler" is triggered.', async () => {
     // Abstract result from instance
     const { result } = instance;
-    // Check that "login" have not been called
+    // Check that "baseProps.clearError" have not been called
     expect(baseProps.clearError).toHaveBeenCalledTimes(0);
     // Trigger "closeErrorMessageHandler"
     act(() => result.current.closeErrorMessageHandler());
-    // Advance timer
     // Check that "baseProps.clearError" have been called once
     expect(baseProps.clearError).toHaveBeenCalledTimes(1);
   });

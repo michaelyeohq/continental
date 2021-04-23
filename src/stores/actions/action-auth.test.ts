@@ -35,9 +35,11 @@ describe('[ActionAuth] Start: ', () => {
     expect(ActionAuth).toBeDefined();
   });
   it('should return AUTH_LOGIN_CLEAR_ERROR when "clearErrorAction" is fired.', () => {
-    expect(ActionAuth.clearErrorAction()).toMatchObject({ type: ActionTypes.AUTH_LOGIN_CLEAR_ERROR });
+    // Set up expected action
+    const expectedAction = { type: ActionTypes.AUTH_LOGIN_CLEAR_ERROR };
+    expect(ActionAuth.clearErrorAction()).toMatchObject(expectedAction);
   });
-  it('should return AUTH_LOGIN_RESUME when "isLoginAction" is fired.', () => {
+  it('should return AUTH_LOGIN_RESUME when "isLoginAction" is fired.', done => {
     // Set up expected actions
     const expectedActions = [{ type: ActionTypes.AUTH_LOGIN_RESUME }];
     // Trigger dispatch
@@ -45,6 +47,7 @@ describe('[ActionAuth] Start: ', () => {
     store.dispatch(ActionAuth.isLoginAction()).then(() => {
       // Check if returned actions matches expected actions
       expect(store.getActions()).toEqual(expectedActions);
+      done();
     });
   });
   it('should return AUTH_LOGIN_START, AUTH_LOGIN_FAIL, and AUTH_LOGIN_STOP when "loginAction" is fired with failed login.', done => {

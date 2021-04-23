@@ -34,7 +34,7 @@ describe('[AuthenticatePage] Start: ', () => {
     // Check that AuthenticatePage-LogoutBtn is not found
     expect(screen.queryByText('Log Out')).toBeNull();
   });
-  it('should render "Sign Out" button when "authStore.authentication" is null.', () => {
+  it('should render "Sign Out" button when "authStore.authentication" is not null.', () => {
     // Set modifiedProps
     const modifiedProps = { ...baseProps, authStore: { ...initialState, authentication: { data: 'data', message: 'message' } } };
     // Rerender view
