@@ -20,7 +20,7 @@ export const isLoginAction = () => async (dispatch: React.Dispatch<AnyAction>) =
 export const loginAction = (loginData: ILoginActionProps) => async (dispatch: React.Dispatch<AnyAction>) => {
   dispatch({ type: ActionTypes.AUTH_LOGIN_START });
   try {
-    const response = await httpApi.post('/employees/login', loginData);
+    const response = await httpApi.post('/login', loginData);
     dispatch({ type: ActionTypes.AUTH_LOGIN_SUCCESS, payload: response.data });
   } catch (error) {
     dispatch({ type: ActionTypes.AUTH_LOGIN_FAIL, payload: error.response.data.message });
