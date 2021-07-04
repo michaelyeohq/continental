@@ -6,7 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 import AuthAction from '../stores/actions/action-auth';
 // Pages
 import AuthenticatePage from '../pages/authenticate/AuthenticatePage';
-
+import HomePage from '../pages/home/Home';
 // Interfaces
 interface IRouteProps {
   authStore: { [x: string]: any };
@@ -21,11 +21,7 @@ const Routes = (props: IRouteProps) => {
       setRoutes([
         {
           path: '/',
-          component: (
-            <button type="button" onClick={() => props.logout()}>
-              Log Out!!
-            </button>
-          ),
+          component: <HomePage logout={props.logout} />,
           options: { exact: true },
         },
       ]);

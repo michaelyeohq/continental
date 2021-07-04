@@ -1,13 +1,10 @@
 // Libraries
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Theme, createStyles, makeStyles, AppBar, Toolbar } from '@material-ui/core';
+import { Theme, createStyles, makeStyles } from '@material-ui/core';
+import Routes from './routes/index';
 // Action Creators
 import ActionAuth from './stores/actions/action-auth';
-// Routes
-import Routes from './routes';
-// Pages
-import AuthenticatePage from './pages/authenticate/AuthenticatePage';
 // Styles
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,16 +32,7 @@ function App(props: IAppProps) {
   // Render
   return (
     <div className={classes.App}>
-      <nav>
-        <AppBar position="static">
-          <Toolbar className={classes.Toolbar}>
-            <AuthenticatePage />
-          </Toolbar>
-        </AppBar>
-      </nav>
-      <main>
-        <Routes />
-      </main>
+      <Routes />
     </div>
   );
 }

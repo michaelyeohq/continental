@@ -1,0 +1,33 @@
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.childone {
+  flex-grow: 1;
+  font-family: "Roboto";
+  background-color: aquamarine;
+}
+
+.button {
+    margin-left: 100px;
+}
+
+.childtwo {
+  flex-grow: 12;
+  display: flex;
+  flex-direction: row;
+}
+
+.childfour {
+  background-color: bisque;
+  flex-grow: 1;
+}
+
+.childfive {
+  background-color: rgb(224, 129, 13);
+  flex-grow: 1;
+}

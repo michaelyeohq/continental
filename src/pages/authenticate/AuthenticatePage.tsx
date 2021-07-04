@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // Libraries
 import { connect } from 'react-redux';
 import { Delete } from '@material-ui/icons';
@@ -11,6 +12,8 @@ import MaterialUIInputField from '../../components/inputs/MaterialUIInputField';
 // Mocks
 import { form } from './mock';
 // Styles
+import './Authenticate.css';
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     AuthenticatePage: {},
@@ -59,17 +62,15 @@ export const AuthenticatePage = (props: any) => {
   };
   // Render
   return (
-    <div data-testid="AuthenticatePage" className={classes.AuthenticatePage}>
-      <Modal data-testid="AuthenticatePage-Modal" className={classes.Modal} open={logic.showModal} onClose={() => logic.setShowModal(false)}>
-        <Card className={classes.Card}>
-          <form className="basic-form basic-form-column" onSubmit={logic.loginHandler}>
-            {generateLoginFormInputs}
-            <Button type="submit" variant="outlined" color="primary">
-              Log In
-            </Button>
-          </form>
-        </Card>
-      </Modal>
+    <div>
+      <Card className="Card">
+        <form className="basic-form basic-form-column" onSubmit={logic.loginHandler}>
+          {generateLoginFormInputs}
+          <Button type="submit" variant="outlined" color="primary">
+            Log In
+          </Button>
+        </form>
+      </Card>
       <Snackbar
         className={classes.Snackbar}
         anchorOrigin={{
@@ -89,8 +90,39 @@ export const AuthenticatePage = (props: any) => {
           </Button>
         </>
       </Snackbar>
-      {generateLoginFormButton()}
     </div>
+    // <div data-testid="AuthenticatePage" className={classes.AuthenticatePage}>
+    //   <Modal data-testid="AuthenticatePage-Modal" className={classes.Modal} open={logic.showModal} onClose={() => logic.setShowModal(false)}>
+    //     <Card className={classes.Card}>
+    //       <form className="basic-form basic-form-column" onSubmit={logic.loginHandler}>
+    //         {generateLoginFormInputs}
+    //         <Button type="submit" variant="outlined" color="primary">
+    //           Log In
+    //         </Button>
+    //       </form>
+    //     </Card>
+    //   </Modal>
+    //   <Snackbar
+    //     className={classes.Snackbar}
+    //     anchorOrigin={{
+    //       vertical: 'top',
+    //       horizontal: 'center',
+    //     }}
+    //     open={logic.showErrorMessage}
+    //     onClose={logic.closeErrorMessageHandler}
+    //     autoHideDuration={5000}
+    //   >
+    //     <>
+    //       <Typography className={classes.Typography} variant="h6">
+    //         {logic.errorMessage}
+    //       </Typography>
+    //       <Button data-testid="AuthenticatePage-Snackbar-Button" className={classes.Button} onClick={logic.closeErrorMessageHandler}>
+    //         <Delete />
+    //       </Button>
+    //     </>
+    //   </Snackbar>
+    //   {generateLoginFormButton()}
+    // </div>
   );
 };
 
