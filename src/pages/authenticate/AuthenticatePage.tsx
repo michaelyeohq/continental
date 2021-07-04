@@ -11,7 +11,7 @@ import ActionAuth from '../../stores/actions/action-auth';
 import MaterialUIInputField from '../../components/inputs/MaterialUIInputField';
 // Mocks
 import { form } from './mock';
-// Styles
+// CSS
 import './Authenticate.css';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -63,7 +63,7 @@ export const AuthenticatePage = (props: any) => {
   // Render
   return (
     <div>
-      <Card className="Card">
+      <Card className="AuthCard">
         <form className="basic-form basic-form-column" onSubmit={logic.loginHandler}>
           {generateLoginFormInputs}
           <Button type="submit" variant="outlined" color="primary">

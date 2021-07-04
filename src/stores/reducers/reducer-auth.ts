@@ -34,6 +34,7 @@ const defaultReducer = (state = initialState, action: AnyAction) => {
     case ActionTypes.AUTH_LOGIN_SUCCESS:
       newState.error = undefined;
       newState.authentication = action.payload;
+      console.log(action.payload);
       localStorage.setItem(ActionTypes.AUTH_LOGIN_SUCCESS, JSON.stringify(action.payload));
       return newState;
     case ActionTypes.AUTH_LOGIN_FAIL:

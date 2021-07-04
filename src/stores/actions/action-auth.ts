@@ -2,6 +2,7 @@
 import React from 'react';
 import { AnyAction } from 'redux';
 // HTTPs
+import { AxiosRequestConfig } from 'axios';
 import { httpApi } from '../https/http-api';
 // Action Types
 import * as ActionTypes from '../action-types';
@@ -20,7 +21,10 @@ export const isLoginAction = () => async (dispatch: React.Dispatch<AnyAction>) =
 export const loginAction = (loginData: ILoginActionProps) => async (dispatch: React.Dispatch<AnyAction>) => {
   dispatch({ type: ActionTypes.AUTH_LOGIN_START });
   try {
-    const response = await httpApi.post('/login', loginData);
+    const requestConfig: AxiosRequestConfig = {
+      withCredentials: true,
+    };
+    const response = await httpApi.post('/login', loginData, requestConfig);
     dispatch({ type: ActionTypes.AUTH_LOGIN_SUCCESS, payload: response.data });
   } catch (error) {
     dispatch({ type: ActionTypes.AUTH_LOGIN_FAIL, payload: error.response.data.message });

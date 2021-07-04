@@ -3,14 +3,16 @@ import './Home.css';
 import '@fontsource/roboto';
 // Components
 import TopBar from './TopBar';
+import InventoryTable from './Inventory/InventoryTable';
 
 interface IHomeProps {
   logout: () => void;
 }
 
 export const HomePage = (props: IHomeProps) => (
-  <div className="Home">
+  <div>
     <TopBar logout={props.logout} />
+    <InventoryTable />
   </div>
 );
 
