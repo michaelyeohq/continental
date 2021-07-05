@@ -29,7 +29,6 @@ export const ItemDialog = (props: IItemDialog) => {
       },
     });
   };
-  console.log(itemForm);
 
   const formHandler = (event: React.FormEvent) => {
     event.preventDefault();

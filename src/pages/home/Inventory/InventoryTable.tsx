@@ -25,7 +25,6 @@ export const InventoryTable = (props: IInventoryTableProps) => {
   const [openEditForm, setOpenEditForm] = useState(false);
   const [editItemIndex, setEditItemIndex] = useState(0);
   const handleEditFormOpen = (index: number) => {
-    console.log('edit form open');
     setOpenEditForm(true);
     setEditItemIndex(index);
   };

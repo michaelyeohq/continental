@@ -22,7 +22,6 @@ const defaultReducer = (state = initialState, action: AnyAction) => {
   const newState = { ...state };
   switch (action.type) {
     case ActionTypes.GET_ITEMS_SUCCESS:
-      console.log(action.payload);
       return action.payload;
     default:
       return newState;
