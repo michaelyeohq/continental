@@ -33,7 +33,7 @@ export const InventoryTableRow = (props: IInventoryTableRowProps) => {
     const requestConfig: AxiosRequestConfig = {
       withCredentials: true,
     };
-    const URL: string = `process.env.REACT_APP_BACKEND_URL/items/${index}`;
+    const URL: string = `${process.env.REACT_APP_BACKEND_URL}/items/${index}`;
     httpApi.delete(URL, requestConfig).then(res => {
       props.setTriggered((prevState: any) => !prevState);
     });
