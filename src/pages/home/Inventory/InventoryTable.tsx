@@ -47,7 +47,7 @@ export const InventoryTable = (props: IInventoryTableProps) => {
     const requestConfig: AxiosRequestConfig = {
       withCredentials: true,
     };
-    const URL: string = 'https://digital-challenge-backend.herokuapp.com/items';
+    const URL: string = `${process.env.REACT_APP_BACKEND_URL}/items`;
     httpApi.get(URL, requestConfig).then(res => {
       setInventory(res.data.data);
     });
@@ -57,7 +57,7 @@ export const InventoryTable = (props: IInventoryTableProps) => {
     const requestConfig: AxiosRequestConfig = {
       withCredentials: true,
     };
-    const URL: string = 'https://digital-challenge-backend.herokuapp.com/items';
+    const URL: string = `${process.env.REACT_APP_BACKEND_URL}/items`;
     httpApi.get(URL, requestConfig).then(res => {
       setInventory(res.data.data);
     });

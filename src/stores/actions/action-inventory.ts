@@ -11,7 +11,7 @@ export const getInventoryAction = () => async (dispatch: React.Dispatch<AnyActio
     const requestConfig: AxiosRequestConfig = {
       withCredentials: true,
     };
-    const URL: string = 'https://digital-challenge-backend.herokuapp.com/items';
+    const URL: string = 'process.env.REACT_APP_BACKEND_URL/items';
     const response = (await httpApi.get(URL, requestConfig)).data.data;
     const inventory = response.map((item: { id: any; name: any; type: any; price: any; stock: any; manufacturer: any }) => ({
       id: item.id,

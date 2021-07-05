@@ -47,7 +47,7 @@ export const ItemDialog = (props: IItemDialog) => {
     const requestConfig: AxiosRequestConfig = {
       withCredentials: true,
     };
-    let URL: string = 'https://digital-challenge-backend.herokuapp.com/items';
+    let URL: string = `${process.env.REACT_APP_BACKEND_URL}/items`;
     if (props.method === 'POST') {
       httpApi
         .post(URL, newItem, requestConfig)
@@ -59,7 +59,7 @@ export const ItemDialog = (props: IItemDialog) => {
           setError(err.response.data.message);
         });
     } else if (props.method === 'UPDATE') {
-      URL = `https://digital-challenge-backend.herokuapp.com/items/${props.id}`;
+      URL = `${process.env.REACT_APP_BACKEND_URL}/items/${props.id}`;
       httpApi
         .put(URL, newItem, requestConfig)
         .then(() => {
