@@ -39,6 +39,7 @@ export const InventoryTable = (props: IInventoryTableProps) => {
       price: number;
       stock: number;
       manufacturer: string;
+      description: string;
     }[]
   >();
   const [triggered, setTriggered] = useState(false);
@@ -48,7 +49,6 @@ export const InventoryTable = (props: IInventoryTableProps) => {
     };
     const URL: string = 'https://digital-challenge-backend.herokuapp.com/items';
     httpApi.get(URL, requestConfig).then(res => {
-      console.log(res.data.data);
       setInventory(res.data.data);
     });
   }, []);
@@ -59,7 +59,6 @@ export const InventoryTable = (props: IInventoryTableProps) => {
     };
     const URL: string = 'https://digital-challenge-backend.herokuapp.com/items';
     httpApi.get(URL, requestConfig).then(res => {
-      console.log(res.data.data);
       setInventory(res.data.data);
     });
   }, [triggered]);
@@ -89,6 +88,7 @@ export const InventoryTable = (props: IInventoryTableProps) => {
                     price={item.price}
                     stock={item.stock}
                     manufacturer={item.manufacturer}
+                    description={item.description}
                     setTriggered={setTriggered}
                     handleEditFormOpen={handleEditFormOpen}
                   />

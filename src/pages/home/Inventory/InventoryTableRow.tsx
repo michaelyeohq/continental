@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unused-prop-types */
 /* eslint-disable no-unused-vars */
-import { TableRow, TableCell, IconButton, Collapse, Typography, makeStyles } from '@material-ui/core';
+import { TableRow, TableCell, IconButton, Collapse, Typography, makeStyles, Box } from '@material-ui/core';
 import { KeyboardArrowUp, KeyboardArrowDown, Delete, Update, Add, Remove } from '@material-ui/icons';
 import { AxiosRequestConfig } from 'axios';
 import React from 'react';
@@ -13,6 +13,7 @@ interface IInventoryTableRowProps {
   price: number;
   stock: number;
   manufacturer: string;
+  description: string;
   setTriggered: (prevState: any) => void;
   handleEditFormOpen: (index: number) => void;
 }
@@ -34,7 +35,6 @@ export const InventoryTableRow = (props: IInventoryTableRowProps) => {
     };
     const URL: string = `https://digital-challenge-backend.herokuapp.com/items/${index}`;
     httpApi.delete(URL, requestConfig).then(res => {
-      console.log(res.data.data);
       props.setTriggered((prevState: any) => !prevState);
     });
   };
@@ -68,7 +68,16 @@ export const InventoryTableRow = (props: IInventoryTableRowProps) => {
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <Typography>Description</Typography>
+            <Box margin={1}>
+              <Typography variant="h6" gutterBottom component="div">
+                Description
+              </Typography>
+              <p>{props.description}</p>
+              <Typography variant="h6" gutterBottom component="div">
+                Manufacturer
+              </Typography>
+              <p>{props.manufacturer}</p>
+            </Box>
           </Collapse>
         </TableCell>
       </TableRow>

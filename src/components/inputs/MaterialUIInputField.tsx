@@ -18,6 +18,8 @@ const MaterialUIInputField = (props: IMaterialUIInputFieldProps) => {
             type={props.input.type}
             name={props.name}
             label={props.input.label}
+            multiline={props.input.multiline}
+            rows={props.input.rows}
             onChange={props.onChange}
             value={props.input.value}
             placeholder={props.input.placeholder}

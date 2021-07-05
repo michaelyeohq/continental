@@ -22,4 +22,6 @@ interface Input {
   label: string;
   value?: any;
   placeholder?: string;
+  multiline?: boolean;
+  rows?: number;
 }

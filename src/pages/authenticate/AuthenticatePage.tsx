@@ -47,19 +47,6 @@ export const AuthenticatePage = (props: any) => {
   const generateLoginFormInputs = Object.keys(logic.loginForm).map(name => (
     <MaterialUIInputField key={name} name={name} input={logic.loginForm[name]} onChange={logic.loginFormChangeHandler} />
   ));
-  const generateLoginFormButton = () => {
-    let clickHandler: any = () => logic.setShowModal(true);
-    let btnText = 'Sign In';
-    if (logic.isLoggedIn) {
-      clickHandler = logic.logoutHandler;
-      btnText = 'Log Out';
-    }
-    return (
-      <Button className={classes.Button} variant="outlined" color="secondary" onClick={clickHandler}>
-        {btnText}
-      </Button>
-    );
-  };
   // Render
   return (
     <div>
@@ -91,38 +78,6 @@ export const AuthenticatePage = (props: any) => {
         </>
       </Snackbar>
     </div>
-    // <div data-testid="AuthenticatePage" className={classes.AuthenticatePage}>
-    //   <Modal data-testid="AuthenticatePage-Modal" className={classes.Modal} open={logic.showModal} onClose={() => logic.setShowModal(false)}>
-    //     <Card className={classes.Card}>
-    //       <form className="basic-form basic-form-column" onSubmit={logic.loginHandler}>
-    //         {generateLoginFormInputs}
-    //         <Button type="submit" variant="outlined" color="primary">
-    //           Log In
-    //         </Button>
-    //       </form>
-    //     </Card>
-    //   </Modal>
-    //   <Snackbar
-    //     className={classes.Snackbar}
-    //     anchorOrigin={{
-    //       vertical: 'top',
-    //       horizontal: 'center',
-    //     }}
-    //     open={logic.showErrorMessage}
-    //     onClose={logic.closeErrorMessageHandler}
-    //     autoHideDuration={5000}
-    //   >
-    //     <>
-    //       <Typography className={classes.Typography} variant="h6">
-    //         {logic.errorMessage}
-    //       </Typography>
-    //       <Button data-testid="AuthenticatePage-Snackbar-Button" className={classes.Button} onClick={logic.closeErrorMessageHandler}>
-    //         <Delete />
-    //       </Button>
-    //     </>
-    //   </Snackbar>
-    //   {generateLoginFormButton()}
-    // </div>
   );
 };
 

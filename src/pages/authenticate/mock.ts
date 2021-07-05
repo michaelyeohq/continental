@@ -38,6 +38,19 @@ export const newItemForm: FormFields = {
     value: '',
     placeholder: 'Enter item stock',
   },
+  manufacturer: {
+    type: 'text',
+    label: 'manufacturer',
+    value: '',
+    placeholder: 'Enter item manufacturer',
+  },
+  description: {
+    type: 'text',
+    label: 'description',
+    value: '',
+    multiline: true,
+    rows: 5,
+  },
 };
 
 export default { form };
